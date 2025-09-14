@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This project aims to predict whether a client will subscribe to a term deposit based on various client attributes and campaign information. The prediction model is built using machine learning techniques and is deployed as a Streamlit web application.
+This project aims to predict whether a client will subscribe to a term deposit based on various client attributes and campaign information. The prediction model is built using machine learning techniques and is deployed as a Streamlit web application. Deployed in AWS Public Project URL = http://56.228.11.120:8501/
 
 ## Business Problem
 
