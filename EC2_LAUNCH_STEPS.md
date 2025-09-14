@@ -20,7 +20,7 @@ This guide provides specific steps to launch an EC2 instance for the Bank Term D
    - Name: Bank-Term-Deposit-App
 
 2. **Application and OS Images**:
-   - Amazon Machine Image (AMI): Ubuntu Server 20.04 LTS (HVM), SSD Volume Type
+   - Amazon Machine Image (AMI): Amazon Linux 2023 AMI (Free tier eligible)
 
 3. **Instance type**:
    - Select: t2.micro (Free tier eligible) for testing
@@ -63,14 +63,14 @@ This guide provides specific steps to launch an EC2 instance for the Bank Term D
 
 ## Step 5: Deploy the Application
 
-1. Upload the deployment script:
+1. Upload the deployment script: 
    ```
-   scp -i "path/to/bank-app-key.pem" deploy_aws.sh ubuntu@your-instance-public-dns:~
+   scp -i "path/to/bank-app-key.pem" deploy_aws.sh ec2-user@your-instance-public-dns:~
    ```
 
 2. Connect to your instance:
    ```
-   ssh -i "path/to/bank-app-key.pem" ubuntu@your-instance-public-dns
+   ssh -i "path/to/bank-app-key.pem" ec2-user@your-instance-public-dns
    ```
 
 3. Make the script executable and run it:

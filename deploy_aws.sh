@@ -1,14 +1,13 @@
 #!/bin/bash
 
-# Update system packages
-sudo apt-get update
-sudo apt-get upgrade -y
+# Update system packages (for Amazon Linux)
+sudo yum update -y
 
 # Install Python and pip if not already installed
-sudo apt-get install -y python3 python3-pip
+sudo yum install -y python3 python3-pip
 
 # Install git
-sudo apt-get install -y git
+sudo yum install -y git
 
 # Clone the repository
 git clone https://github.com/senorvishnu/Predicting_Term_Deposit_Subscription.git
@@ -22,4 +21,4 @@ python3 setup.py
 
 # Run the Streamlit app
 echo "Starting Streamlit app..."
-streamlit run app.py --server.port 8501 --server.enableCORS false --server.enableXsrfProtection false
+python3 -m streamlit run app.py --server.port 8501 --server.enableCORS false --server.enableXsrfProtection false

@@ -16,7 +16,7 @@ This guide provides step-by-step instructions for deploying the Bank Term Deposi
    - Enter a name for your instance (e.g., "Bank-Term-Deposit-App")
 
 4. **Choose an Amazon Machine Image (AMI)**:
-   - Select "Ubuntu Server 20.04 LTS (HVM), SSD Volume Type"
+   - Select "Amazon Linux 2023 AMI" (Free tier eligible)
 
 5. **Choose an Instance Type**:
    - For testing: t2.micro (Free tier eligible)
@@ -59,7 +59,7 @@ This guide provides step-by-step instructions for deploying the Bank Term Deposi
 
 4. **Connect to your instance**:
    ```
-   ssh -i "your-key-file.pem" ubuntu@your-instance-public-dns
+   ssh -i "your-key-file.pem" ec2-user@your-instance-public-dns
    ```
    Replace `your-instance-public-dns` with your actual EC2 public DNS (found in the EC2 Dashboard)
 
@@ -79,7 +79,7 @@ This guide provides step-by-step instructions for deploying the Bank Term Deposi
 
 4. **Connect to your instance**:
    ```
-   ssh -i your-key-file.pem ubuntu@your-instance-public-dns
+   ssh -i your-key-file.pem ec2-user@your-instance-public-dns
    ```
 
 ## 3. Deploy the Application
@@ -90,12 +90,12 @@ This guide provides step-by-step instructions for deploying the Bank Term Deposi
 
    **For Windows**:
    ```
-   scp -i "your-key-file.pem" deploy_aws.sh ubuntu@your-instance-public-dns:~
+   scp -i "your-key-file.pem" deploy_aws.sh ec2-user@your-instance-public-dns:~
    ```
 
    **For Mac/Linux**:
    ```
-   scp -i your-key-file.pem deploy_aws.sh ubuntu@your-instance-public-dns:~
+   scp -i your-key-file.pem deploy_aws.sh ec2-user@your-instance-public-dns:~
    ```
 
 2. **Make the script executable**:

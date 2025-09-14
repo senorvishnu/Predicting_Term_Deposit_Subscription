@@ -5,12 +5,12 @@
 echo "Checking if Streamlit application is running..."
 
 # Check if streamlit process is running
-if pgrep -f "streamlit run app.py" > /dev/null
+if pgrep -f "python3 -m streamlit run app.py" > /dev/null
 then
     echo "✅ Streamlit application is running."
     
     # Get the process ID
-    PID=$(pgrep -f "streamlit run app.py")
+    PID=$(pgrep -f "python3 -m streamlit run app.py")
     echo "Process ID: $PID"
     
     # Check how long it's been running
