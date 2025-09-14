@@ -103,6 +103,59 @@ Based on the model and feature importance, the following factors are most influe
 - Implement A/B testing for different marketing strategies
 - Add batch prediction functionality for multiple clients
 
+## Deployment on AWS EC2
+
+### Prerequisites
+
+- AWS account with EC2 access
+- Basic knowledge of AWS EC2 and SSH
+
+### Steps to Deploy
+
+1. **Launch an EC2 Instance**:
+   - Log in to the AWS Management Console
+   - Navigate to EC2 Dashboard
+   - Launch a new instance (recommended: t2.micro for testing, t2.small or larger for production)
+   - Select Ubuntu Server 20.04 LTS as the AMI
+   - Configure security group to allow inbound traffic on ports 22 (SSH) and 8501 (Streamlit)
+   - Create or select an existing key pair for SSH access
+   - Launch the instance
+
+2. **Connect to Your EC2 Instance**:
+   ```
+   ssh -i /path/to/your-key.pem ubuntu@your-instance-public-dns
+   ```
+
+3. **Deploy the Application**:
+   - Upload the deployment script to your instance:
+     ```
+     scp -i /path/to/your-key.pem deploy_aws.sh ubuntu@your-instance-public-dns:~
+     ```
+   - Connect to your instance and make the script executable:
+     ```
+     chmod +x deploy_aws.sh
+     ```
+   - Run the deployment script:
+     ```
+     ./deploy_aws.sh
+     ```
+
+4. **Access the Application**:
+   - Open your web browser and navigate to:
+     ```
+     http://your-instance-public-dns:8501
+     ```
+
+### Running as a Background Service
+
+To keep the application running after you disconnect from SSH:
+
+```
+nohup ./deploy_aws.sh > streamlit.log 2>&1 &
+```
+
+This will run the application in the background and save logs to streamlit.log.
+
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
